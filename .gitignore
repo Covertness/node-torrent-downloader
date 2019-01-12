@@ -1,0 +1,4 @@
+node_modules/
+coverage/
+aria2/
+*.log
