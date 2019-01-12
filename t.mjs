@@ -1,7 +1,8 @@
 import Downloader from './lib/downloader'
 
 const downloader = new Downloader({
-    attach: false
+    attach: false,
+    rpcSecret: 'UMczgvVPiBVuE6DYw2F8ZxjcAB62K9yjtxTSbGFFphNWPKgFRw6Ku6dnJ4RQwecE'
 })
 
 downloader.open().then(() => {
