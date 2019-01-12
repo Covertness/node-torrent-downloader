@@ -1,6 +1,8 @@
-import fs from 'fs'
-import parseTorrent from 'parse-torrent'
-import { downloader } from './lib/downloader'
+import Downloader from './lib/downloader'
+
+const downloader = new Downloader({
+    attach: false
+})
 
 downloader.open().then(() => {
     console.log('downloader opened')
