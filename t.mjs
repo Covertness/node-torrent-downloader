@@ -17,15 +17,15 @@ downloader.open().then(() => {
         //     console.log('current stat', stat)
         // })
 
-        downloader.torrentTable.forEach(torrent => {
+        downloader.torrents.forEach(torrent => {
             console.log('torrent:', torrent.id)
 
-            downloader.getTorrent(torrent.id).then(torrent => {
-                console.log('status:', torrent.status)
-                console.log('files:', torrent.files)
-            }).catch((error) => {
-                console.error('getTorrent error:', error)
-            })
+            // downloader.getTorrent(torrent.id).then(torrent => {
+            //     console.log('status:', torrent.status)
+            //     console.log('files:', torrent.files)
+            // }).catch((error) => {
+            //     console.error('getTorrent error:', error)
+            // })
         })
     }, 2000)
 
