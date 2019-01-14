@@ -1,7 +1,8 @@
+import fs from 'fs'
 import Downloader from './lib/downloader'
 
 const downloader = new Downloader({
-    attach: false,
+    attach: true,
     rpcSecret: 'UMczgvVPiBVuE6DYw2F8ZxjcAB62K9yjtxTSbGFFphNWPKgFRw6Ku6dnJ4RQwecE'
 })
 
@@ -20,12 +21,19 @@ downloader.open().then(() => {
         downloader.torrents.forEach(torrent => {
             console.log('torrent:', torrent.id)
 
-            // downloader.getTorrent(torrent.id).then(torrent => {
-            //     console.log('status:', torrent.status)
-            //     console.log('files:', torrent.files)
-            // }).catch((error) => {
-            //     console.error('getTorrent error:', error)
-            // })
+            downloader.getTorrent(torrent.id).then(torrent => {
+                console.log('status:', torrent.status)
+                console.log('files:', torrent.files)
+
+            //     return downloader.pauseTorrent(torrent.id)
+            // }).then(() => {
+            //     return downloader.updateTorrent(torrent.id, { 'select-file': '2' })
+            // }).then(() => {
+            //     // unpause after status has become paused
+            //     return downloader.unpauseTorrent(torrent.id)
+            }).catch((error) => {
+                console.error('error:', error)
+            })
         })
     }, 2000)
 
@@ -39,11 +47,11 @@ downloader.open().then(() => {
     // console.log(torrentContent)
 
     // fs.readFile('data/test2.torrent', (_, data) => {
-    //     downloader.addTorrent(data).then((gid) => {
-    //         console.log('add torrent success', gid)
+    // downloader.addTorrent(data, {'select-file': '1'}).then((id) => {
+    //     console.log('add torrent success', id)
 
-            
-    //     })
+
+    // })
     // })
 }).catch((error) => {
     console.error('downloader error:', error)

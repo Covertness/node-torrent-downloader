@@ -17,6 +17,7 @@
     "node": ">=8.11.0"
   },
   "dependencies": {
+    "bncode": "^0.5.3",
     "fs-extra": "^7.0.1",
     "parse-torrent": "^6.1.2",
     "websocket": "^1.0.28"
